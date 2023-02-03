@@ -3,6 +3,9 @@ import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import Unocss from 'unocss/vite'
+import presetUno from '@unocss/preset-uno'
+import presetAttributify from '@unocss/preset-attributify'
 import path from "path"
 
 
@@ -18,6 +21,9 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    Unocss({
+      presets:[presetUno(), presetAttributify({ /* options */ }),]
+    }),
     AutoImport({
       imports: [
         'vue',
